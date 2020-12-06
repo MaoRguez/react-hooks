@@ -1,5 +1,16 @@
 .App {
   text-align: center;
+  height: auto;
+}
+
+.darkMode {
+  background-color: #252525;
+  color: #fafafa;
+}
+
+.lightMode {
+  background-color: #fafafa;
+  color: #252525;
 }
 
 .App-logo {

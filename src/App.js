@@ -1,24 +1,34 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+// import styled from 'styled-components';
+import ThemeContext from './context/ThemeContext';
+import Header from './components/Header/Header';
+import Characters from './components/Characters/Characters';
 import './App.css';
 
+
 function App() {
+  const [theme, setTheme] = useState('lightMode');
+
+  /* const Container = styled.main`
+    background-Color: ${props => props.theme ? '#fafafa' : '#252525'};
+    color: ${props => props.theme ? '#252525' : '#fafafa'};
+    /* .darkMode {
+      background-color: #252525;
+      color: #fafafa;
+    }
+    .lightMode {
+      background-color: #fafafa;
+      color: #252525;
+    }
+  `;*/
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeContext.Provider value={{theme, setTheme}}>
+      <div className={'App ' + theme}>
+        <Header />
+        <Characters />
+      </div>
+    </ThemeContext.Provider>
   );
 }
 
